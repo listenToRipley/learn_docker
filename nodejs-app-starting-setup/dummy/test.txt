@@ -1,0 +1,6 @@
+hello
+docker cp to copy into a running container or a different container. 
+you state where it is dummy/. the container name:/path inside 
+
+to see the whole text
+docker cp dummy /. contain_name:/test
