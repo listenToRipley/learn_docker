@@ -67,14 +67,23 @@ app.get('/people', async (req, res) => {
   }
 });
 
-mongoose.connect(
-  'mongodb://localhost:27017/swfavorites',
-  { useNewUrlParser: true },
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      app.listen(3000);
-    }
-  }
-);
+// mongoose.connect(
+//   'mongodb://localhost:27017/swfavorites',
+//   { useNewUrlParser: true },
+//   (err) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       app.listen(3000);
+//     }
+//   }
+// );
+
+
+// notes
+// if you don't have mongoose locally installed this will fail the first time around.
+
+app.listen(3000); // just spin up the webserver
+//get container up docker build -t favorites-node . 
+// run in de attached mode 
+// docker run --name favorites -d --rm -p 3000:3000 favorites-node
