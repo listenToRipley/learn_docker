@@ -79,9 +79,11 @@ app.get('/people', async (req, res) => {
 //special address for request domain
 mongoose.connect(
   // 'mongodb://localhost:27017/swfavorites',
-  'mongodb://host.docker.internal:27017/swfavorites',
+  // 'mongodb://host.docker.internal:27017/swfavorites',
   //special address that Docker can see and know where it should go, translated to host machine inside docker machine. 
   //can be any url or http request: host.docker.internal 
+  'mongodb://IPAddress:27017/swfavorites',
+  // networkconnection 
   { useNewUrlParser: true },
   (err) => {
     if (err) {
