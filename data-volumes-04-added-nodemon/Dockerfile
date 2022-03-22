@@ -8,7 +8,12 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+#provide environment variable - 80 is the default, can be overriden when starting the container --env PORT=8000
+# example docker run -d --rm -p 3000:8000 --env PORT=8000 --name feedback-app -v feedback:/app/feedback -v $(pwd):/app -v /app/node_modules feedback-node:volumes 
+ENV PORT 80
+
+# can call port how with $ in front since it is established in ENV
+EXPOSE $PORT
 
 # VOLUME [ "/app/node_modules" ]
 
