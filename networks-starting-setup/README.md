@@ -1,0 +1,1 @@
+you will need to containaize MongoDB in order for favorites to work. 
