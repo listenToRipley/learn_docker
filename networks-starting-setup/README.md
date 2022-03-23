@@ -19,3 +19,4 @@ to associate a network to a container, link it in your run time
 docker run -d --name mongodb --network network_name mongo
 
 If two containers share a network, then instead of using the network IP address to make calls, you can use the container's name 
+--network network_name must be included in the start of the other container in order to see that same network. 
