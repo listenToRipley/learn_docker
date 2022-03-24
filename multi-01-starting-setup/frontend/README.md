@@ -74,3 +74,8 @@ Run docker build -t goals-react .
   docker run --name goals-frontend --rm -p 3000:3000 -it goals-react
 
 [review known issues](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/learn/lecture/22167024#questions/16138808)
+
+
+Talk on a single network 
+  Can't use container names for call in App.js as that is communicating through the browser, not the network. 
+  React won't interact with the network, so the run command will look the same. 
