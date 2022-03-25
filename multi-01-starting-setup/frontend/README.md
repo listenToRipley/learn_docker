@@ -79,3 +79,7 @@ Run docker build -t goals-react .
 Talk on a single network 
   Can't use container names for call in App.js as that is communicating through the browser, not the network. 
   React won't interact with the network, so the run command will look the same. 
+
+Watch for changes 
+Create a bind 
+  docker run -v ${pwd}/src:/front/src --name goals-frontend --rm -d -p 3000:3000 -it goals-react
