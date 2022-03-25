@@ -29,3 +29,8 @@ ENTRYPOINT
   Similar to CMD = commands can be overwritten with whatever is provided during the docker run command after they commands is complete. So after the image name, npm install would override any provided commands in the Dockerfile. 
   
   Whatever is entered is appended after the entry point. You don't have to include the command of the entrypoint since it will exist already. 
+
+After docker-compose.yml ? find services in docker-compose.yml file. 
+  docker-compose run [service name] [add commands]
+  This allows up to run a single service from the container with service name = npm init 
+  run, there is no up or down. must include --rm to have it removed once completed. 
