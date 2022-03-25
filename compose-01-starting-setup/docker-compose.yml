@@ -34,7 +34,18 @@ services:
       - ./env/backend.env
     depends_on: 
       - mongodb
-  # frontend:
+  frontend:
+    # image: not prebuilt
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src # bind mount 
+    # make interactive mode 
+    stdin_open: true # -it open input connection 
+    tty: true # attached the terminal 
+    depends_on:
+      - backend
 volumes: 
   data: 
   logs: 
