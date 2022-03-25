@@ -16,6 +16,5 @@ services:
   # backend:
     
   # frontend:
-
-  volumes: 
-    data: 
+volumes: 
+  data: 

@@ -1,6 +1,10 @@
 ## notes 
 
-docker-compose.yml: 
+## Start services
+docker-compose up 
+
+
+## docker-compose.yml: 
 A way to include requirements instead of specifying in CLI on docker run. 
 Indenting and spacing matters for yml.
 When you docker compose it will automatically be --rm (removed) when you bring it down. 
