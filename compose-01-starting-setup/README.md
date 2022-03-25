@@ -1,8 +1,16 @@
 ## notes 
+Single or double quote don't appear to have an effect on the input 
 
 ## Start services
 docker-compose up 
+  Pulls all images and starts containers 
 
+Can use docker-compose -d 
+  Will start in detached mode. 
+
+docker-compose down, shut everything down, removes services. deletes containers. Does not delete volumes. 
+
+docker-compose down -d removes volumes 
 
 ## docker-compose.yml: 
 A way to include requirements instead of specifying in CLI on docker run. 
@@ -23,6 +31,9 @@ SERVICES
   There must be at least one container associated with this composer file. 
   Each service will be provided by an indent as well and wil detail the requirements of the container. 
 
+  BUILD
+    Provide the absolute path from the base directly to the image you want to create/ has the associated Dockerfile. 
+
   IMAGES
     the image associated with the container. 
     This name can be an image you created or the name that will be looked up in Dockerhub.
@@ -39,11 +50,20 @@ SERVICES
   ENV_FILE
     provide relative path to an env file with a list of variables that that container will use. 
 
+  PORTS
+    - Provide as a list "post port":"container internal port"
+    can provide multiple ports 
+
   NETWORKS
     you can provide on individual containers, but docker-compose created single service for all items within the name network that is automatically created by docker. 
-    Can still add if other networks. 
+    Can still add if other networks.
+
+  DEPENDS_ON
+    One container depends on another and one should be up before the other container starts running.
+    Provide - list of services/container/ this container depends on. 
 
 VOLUMES
+  Top level volumes
   Should be at the same level of services. List of volumes used here.  
   Indent the name on the volume, include :
   volumes listed here can be shared. 
