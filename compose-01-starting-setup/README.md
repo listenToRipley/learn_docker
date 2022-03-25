@@ -1,7 +1,7 @@
 ## notes 
 Single or double quote don't appear to have an effect on the input 
 
-## Start services
+## Services
 docker-compose up 
   Pulls all images and starts containers 
 
@@ -11,6 +11,8 @@ Can use docker-compose -d
 docker-compose down, shut everything down, removes services. deletes containers. Does not delete volumes. 
 
 docker-compose down -d removes volumes 
+
+if you add --build to docker-compose up, you force images to get rebuilt. Otherwise, previous image will get reused. 
 
 ## docker-compose.yml: 
 A way to include requirements instead of specifying in CLI on docker run. 
@@ -31,6 +33,9 @@ SERVICES
   There must be at least one container associated with this composer file. 
   Each service will be provided by an indent as well and wil detail the requirements of the container. 
 
+  NAME
+    overrides default names or pre-generated name from Docker. 
+  
   BUILD
     Provide the absolute path from the base directly to the image you want to create/ has the associated Dockerfile. 
 

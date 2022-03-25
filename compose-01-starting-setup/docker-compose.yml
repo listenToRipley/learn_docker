@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   mongodb:
-    image: "mongo"
-    volumes:
+    image: 'mongo'
+    volumes: 
       - data:/data/db
     # environment:
       # # - MONGODB_USERNAME: natalie or 
@@ -16,6 +16,7 @@ services:
   backend: # this is local, but the image doesn't currently exist 
     # short form
     build: ./backend 
+    container_name: backend 
     # long form
     # build: 
     #   context: ./backend # path to the folder that holder the Dockerfile. Where the Dockerfile is built and generated. Set to folder where the dockerfile may look for references. 
@@ -37,15 +38,17 @@ services:
   frontend:
     # image: not prebuilt
     build: ./frontend
-    ports:
-      - "3000:3000"
-    volumes:
+    container_name: frontend
+    ports: 
+      - '3000:3000'
+    volumes: 
       - ./frontend/src:/app/src # bind mount 
     # make interactive mode 
     stdin_open: true # -it open input connection 
     tty: true # attached the terminal 
     depends_on:
       - backend
+      
 volumes: 
   data: 
   logs: 
