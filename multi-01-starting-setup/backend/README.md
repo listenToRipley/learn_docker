@@ -13,3 +13,7 @@ Talk on a single network
 
 Include volumes or bind mount to hold onto information 
   docker run --name goals-backend -v $(pwd):/backend -v logs:/backend/logs -v /backend/node_modules --rm -d -p 80:80 --network goals goals-node
+
+For env items can be passed in your run command using -e with the variable name to replace any default options provided in your docker file
+
+
