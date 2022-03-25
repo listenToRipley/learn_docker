@@ -51,7 +51,7 @@ SERVICES
     provide relative path to an env file with a list of variables that that container will use. 
 
   PORTS
-    - Provide as a list "post port":"container internal port"
+    - Provide as a list "post port:container internal port"
     can provide multiple ports 
 
   NETWORKS

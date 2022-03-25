@@ -13,27 +13,27 @@ services:
       - ./env/mongo.env
     # networks:
     #   - goals-net 
-    backend: # this is local, but the image doesn't currently exist 
-      # short form
-      build: ./backend 
-      # long form
-      # build: 
-      #   context: ./backend # path to the folder that holder the Dockerfile. Where the Dockerfile is built and generated. Set to folder where the dockerfile may look for references. 
-      #   # see COPY to verify the first element to know what the context should be relative to. 
-      #   dockerfile: Dockerfile # the key if the file is not Dockerfile since the default it looks for is Dockerfile.
-      #   agr: 
-      #     some-arg: 1 
-      # images: "goals-node"
-      ports: 
-        -"80":"80"
-      volumes: 
-        - logs:/app/logs 
-        - ./backend:/app #relative path to docker-compose file. now bound inside app. Since a bind mount, don't add to top level volume. 
-        - app/node_modules # annoymous volume. don't add to top level volumes 
-      env_file: 
-        - ./env/backend.env
-      depends_on: 
-        - mongodb
+  backend: # this is local, but the image doesn't currently exist 
+    # short form
+    build: ./backend 
+    # long form
+    # build: 
+    #   context: ./backend # path to the folder that holder the Dockerfile. Where the Dockerfile is built and generated. Set to folder where the dockerfile may look for references. 
+    #   # see COPY to verify the first element to know what the context should be relative to. 
+    #   dockerfile: Dockerfile # the key if the file is not Dockerfile since the default it looks for is Dockerfile.
+    #   agr: 
+    #     some-arg: 1 
+    # images: "goals-node"
+    ports: 
+      - "80:80"
+    volumes: 
+      - logs:/app/logs 
+      - ./backend:/app #relative path to docker-compose file. now bound inside app. Since a bind mount, don't add to top level volume. 
+      - app/node_modules # annoymous volume. don't add to top level volumes 
+    env_file: 
+      - ./env/backend.env
+    depends_on: 
+      - mongodb
   # frontend:
 volumes: 
   data: 
