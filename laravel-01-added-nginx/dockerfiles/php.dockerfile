@@ -3,7 +3,7 @@ FROM php:7.4-fpm-alpine
 WORKDIR /var/www/html 
 # to serve the website from
 #this folder holdsour final application, can see nginx.conf for dependencies example. 
-COPY src . 
+COPY src ./ 
 
 RUN docker-php-ext-install pdo pdo_mysql
 
