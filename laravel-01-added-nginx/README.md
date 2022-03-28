@@ -4,3 +4,7 @@
 ## PHP
 Want the custom docker file since it does not have everything we need. 
 [Starts with...](https://hub.docker.com/_/php), will need extensions 
+
+## MYSQL
+
+[Starting point](https://hub.docker.com/_/mysql)
