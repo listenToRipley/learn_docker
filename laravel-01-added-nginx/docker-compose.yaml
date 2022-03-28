@@ -16,6 +16,7 @@ services:
       context: ./dockerfiles
       dockerfile: php.dockerfile
     #this php interpretor needs to be able to read and access source code through /var/www/html. This will require a bind mount. 
+    # default, the dockerfile is static once built and will not be altered. We must include --build to compose up so the images will be rebuilt on changes. Otherwise it will reuse cached layers. 
     volumes:
       - ./src:/var/www/html:delegated # delegated, performance improvement. If something is writted here, it is not automatically added to host machine - will process in batches. Not everything needs to be added immediately. 
       # read only not an option since some information will be written and required to be accessible.  
@@ -35,5 +36,13 @@ services:
     #expose source code directory. It does it within the source folder. 
     volumes:
       - ./src:/var/www/html # mirrored back to this folder. 
-  # artisan:
+  artisan: # run laravel commands
+    build: # can use the php dockerfile since it requires php to run code.   
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html
+      # can set specific that may be required for docker-compose inside of this file to override the dockerfile
+    entrypoint: ["php", "/var/www/html/artisan"] # add entrypoint  > path see src/artisan 
+
   # npm:
