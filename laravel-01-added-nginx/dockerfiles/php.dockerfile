@@ -14,3 +14,5 @@ RUN addgroup -g 1000 laravel && adduser -G laravel -g laravel -s /bin/sh -D lara
 # add laravel interactions 
 
 USER laravel
+
+RUN chown -R www-data:www-data /var/www/html
