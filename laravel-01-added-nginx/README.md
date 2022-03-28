@@ -8,3 +8,11 @@ Want the custom docker file since it does not have everything we need.
 ## MYSQL
 
 [Starting point](https://hub.docker.com/_/mysql)
+
+## Composer 
+
+[Hub image](https://hub.docker.com/_/composer)
+
+## Artisan
+
+## npm:
