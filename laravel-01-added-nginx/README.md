@@ -1,3 +1,8 @@
+## Laravel
+[Official docs](https://laravel.com/docs/9.x)
+Can use composer to start project. 
+docker-compose run --rm composer create-project --prefer-dist laravel/laravel .
+
 ## Nginx
 [Official documentation on nginx image](https://hub.docker.com/_/nginx)
 

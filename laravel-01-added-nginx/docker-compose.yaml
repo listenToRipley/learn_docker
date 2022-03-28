@@ -26,10 +26,10 @@ services:
   composer:
     # util container. Used by laravel, but used by us to set up .
     build: 
-      context: ./dockerfile
+      context: ./dockerfiles
       dockerfile: composer.dockerfile 
     #expose source code directory. It does it within the source folder. 
-    volume:
-    - ./src:/var/www/html # mirrored back to this folder. 
+    volumes:
+      - ./src:/var/www/html # mirrored back to this folder. 
   # artisan:
   # npm:
