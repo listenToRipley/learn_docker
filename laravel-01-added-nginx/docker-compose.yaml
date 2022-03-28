@@ -7,7 +7,10 @@ services:
       - '8000:80'
     volumes: 
       - ./src:/var/www/html # bind mount to allow server to access information and db translations from php
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro # 
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro # eventually get merged into master config folder in nginx
+    depends_on: # docker compose will make sure server will include php and mysql. 
+      - php
+      - mysql
   php: # can reference dockerfile
     build: 
       context: ./dockerfiles
