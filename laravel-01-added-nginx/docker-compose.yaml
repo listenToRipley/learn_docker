@@ -11,7 +11,13 @@ services:
     build: 
       context: ./dockerfiles
       dockerfile: php.dockerfile
-
+    #this php interpretor needs to be able to read and access source code through /var/www/html. This will require a bind mount. 
+    volumes:
+      - ./src:/var/www/html:delegated # delegated, performance improvement. If something is writted here, it is not automatically added to host machine - will process in batches. Not everything needs to be added immediately. 
+      # read only not an option since some information will be written and required to be accessible.  
+    # ports:
+        # the PORT where "it listens for work" is established in the nginx.conf file, "fastcgi_pass". This refers directly to the name of the container. 
+      # - "9000:3000" # 9000 comes from official documentation - but is not required since php and nginx are connected through network. Just update the fastcgi_pass to default port. 
   # mysql:
   # composer:
   # artisan:
