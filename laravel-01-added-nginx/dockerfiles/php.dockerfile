@@ -1,6 +1,6 @@
-FROM php:7.4-fpm-alpine
+FROM php:8.0-fpm-alpine
 
-WORKDIR /var/www/html 
+WORKDIR /var/www/html
 # to serve the website from
 #this folder holdsour final application, can see nginx.conf for dependencies example. 
 

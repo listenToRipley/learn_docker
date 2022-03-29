@@ -9,6 +9,13 @@ This will provide all information to the src
 
 Within created content within src/env look at lines 9-14, these should sync up with your db settings provided in your env folder. 
 
+DB_CONNECTION=mysql
+DB_HOST=mysql # this is the entry point for accessing the containers of the db now. 
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
 The db host will need to be the name of the container hosting the mysql db. 
 
 ## Nginx

@@ -2,7 +2,7 @@ version: "3.8"
 
 services: 
   server:
-    # image: 'nginx:stable-alpine'
+    # image: 'nginx:stable-alpine' > change to dockerfile. 
     build:
       context: . # Determines where the dockerfile will be built. Matters since the build will now occur on the main folder. This will make sure it's not made within the dockerfiles folder. 
       dockerfile: dockerfiles/nginx.dockerfile # still need to be a relative path based on the provided context. 
