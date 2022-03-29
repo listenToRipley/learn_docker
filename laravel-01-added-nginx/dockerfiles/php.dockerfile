@@ -18,7 +18,7 @@ RUN chown -R www-data:www-data /var/www/html
 ## if you don't have an command or entrypoint listed, the base image will be used if you have one.
 # the base image involves php interpretor 
 
-# RUN addgroup -g 1000 laravel && adduser -G laravel -g laravel -s /bin/sh -D laravel
+RUN addgroup -g 1000 laravel && adduser -G laravel -g laravel -s /bin/sh -D laravel
 # add laravel interactions 
 
-# USER laravel
+USER laravel
