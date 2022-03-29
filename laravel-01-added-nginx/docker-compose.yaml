@@ -2,7 +2,10 @@ version: "3.8"
 
 services: 
   server:
-    image: 'nginx:stable-alpine'
+    # image: 'nginx:stable-alpine'
+    build:
+      context: . # Determines where the dockerfile will be built. Matters since the build will now occur on the main folder. This will make sure it's not made within the dockerfiles folder. 
+      dockerfile: dockerfiles/nginx.dockerfile # still need to be a relative path based on the provided context. 
     ports: 
       - '8000:80'
     volumes: 
@@ -13,8 +16,8 @@ services:
       - mysql
   php: # can reference dockerfile
     build: 
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
+      context: .
+      dockerfile: dockerfiles/php.dockerfile
     #this php interpretor needs to be able to read and access source code through /var/www/html. This will require a bind mount. 
     # default, the dockerfile is static once built and will not be altered. We must include --build to compose up so the images will be rebuilt on changes. Otherwise it will reuse cached layers. 
     volumes:
@@ -38,8 +41,8 @@ services:
       - ./src:/var/www/html # mirrored back to this folder. 
   artisan: # run laravel commands
     build: # can use the php dockerfile since it requires php to run code.   
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
+      context: .
+      dockerfile: dockerfiles/php.dockerfile
     volumes:
       - ./src:/var/www/html
       # can set specific that may be required for docker-compose inside of this file to override the dockerfile
@@ -48,6 +51,6 @@ services:
     image: node:14 
     # this is another override like entrypoint above
     working_dir: /var/www/html
-    entrypoint: ["npm"]
+    entrypoint: ["npm"] ## can always just create your own dockerfile. 
     volumes:
       - ./src:/var/www/html

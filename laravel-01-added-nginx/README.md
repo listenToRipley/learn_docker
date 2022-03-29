@@ -37,3 +37,5 @@ docker-compose up --help > info about docker compose up
 If you use docker-compose up < this will provide all services
 If you use docker-compose > you can target specific services by providing a list of services you want.
 
+Volumes are only going to be available within the container. 
+
