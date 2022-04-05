@@ -1,6 +1,6 @@
 ### notes on deployment. 
 1.  docker build -t node-dep-example . 
-2. docker run -d --rm --name node-dep -p 80:80 node-dep-example
+2. docker run -d --rm --name node-dep -p 80:80 
 
 Bind Mounts, Volumes & COPY 
 
@@ -23,3 +23,10 @@ We need to add image to AWS remote machine.
 
 
 This with setup once you are connected, (you can use the same ssh -i connect command to reconnect it your connection becomes broken.)
+
+you just need to rebuild and then in the ec2 sudo docker stop container_name
+
+sudo docker pull
+
+then restart 
+sudo docker run -d --rm -p 80:80 node-dep-example 
