@@ -15,7 +15,7 @@ Not an alternative to docker, but a way to deploy containers.
 Is a way to replace Docker-compose for multi-machines set up. 
 
 # Worker nodes 
-Pods: 
+Pods: (docker run within the pod)
   Container resources: Volumes, IP, run config 
   kubelete - software communication device between master node and worker nodes 
   kube-proxy - software manage traffic and access to nodes. 
@@ -31,3 +31,17 @@ The control plane : create, start, replace, restart and manage worker nodes. The
 
 # Cluster 
 The master node and all the worker nodes collection the represent what we want the end state to be. 
+
+# Services 
+Group of pods with pod and container IP address. Related to proxies. Exposing pods to the outside world so they can be reached with specific IP addresses.  
+
+# Works with Objects 
+Known Objects:
+  Pods - the smallest unit kubernetes knows and can interact with. has a cluster internal IP address by default. They do no persist. 
+  Deployments - Controls multiple Pods. We set a desired target state and kubernetes should get us there. 
+  Services
+  Volumes 
+  ... and more 
+
+The idea is that you can create an object and then kubernetes will take the object and do something based on the instructions provided in the object. 
+Creation occurs either: Imperatively or Declaratively. 
