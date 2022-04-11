@@ -80,8 +80,19 @@ See instructions with this as kubectl help
   kubectl get deployments 
 
   If you can access it the result should look something like: 
-  NAME        READY   UP-TO-DATE   AVAILABLE   AGE
-  first-app   1/1     1            1           4s
+  NAME            READY   UP-TO-DATE   AVAILABLE   AGE
+  kub-first-app   1/1     1            1           13s
+
+  for the pods 
+  kubectl get pods 
+  
+  NAME                             READY   STATUS    RESTARTS   AGE
+  kub-first-app-5b9f69f9c9-cxwt4   1/1     Running   0          2m27s
+
+  Application is up
+
+  At this point, we can't reach yet. 
+  We can see progress though through minikube dashboard 
 
 You can remove an object by providing: kubectl delete (type of object used) (name provided within the create command.)
 If you can't remember the name you used, run the kubectl get (type of object) and you should see the name in the first column. 
