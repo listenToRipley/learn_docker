@@ -69,10 +69,12 @@ See instructions with this as kubectl help
   Then: docker push listentoripley/kube-first-app 
   Now we should be able to use this image 
 
+  Make sure the image is built locally first. 
+
   kubectl create deployment first-app(name could be anything) --image=(which image should be used by the pod off this deployment) 
   example: kubectl create deployment kub-first-app --image=listentoripley/kube-first-app
 
-  This will create a deployment objects - this is an imperatives approach to object creation. kubectl is formatted to be automatically connected to minikube, so no additional actions should be required to create this connection. 
+  This will create a deployment objects - this is an imperatives approach to object creation. kubectl is formatted to be automatically connected to minikube, so no additional actions should be required to create this connection. This is also the connection to the control plane.  
 
   kubectl get deployments - can see deployments within the cluster you are connected to.   
 
@@ -92,7 +94,40 @@ See instructions with this as kubectl help
   Application is up
 
   At this point, we can't reach yet. 
-  We can see progress though through minikube dashboard 
+  We can see progress though through minikube dashboard  
+  This should stay up as long as you want to access that information provided on the dashboard. 
+
+  ### information about what is provided on minikube dashboard 
+This is the way we can review the cluster.  
+Label - metadata regarding application and deployment it belongs to. 
+On the pod: IP address will only be internal inside of the cluster. If you try using it within the browse, it will fail. Even if you use exposed port within the container. 
+This IP address will change every time a pod is updates or changed.
+Inside, you can add services.  
+
+Service groups pods together and gives a shared IP address and make them reachable. Tell the service to expose the address, inside and outside of the cluster. 
+  
+4. Create Services: 
+Can use kubectl create service, but will require more work. Instead use 
+  kubectl expose deployment kub-first-app --type=LoadBalancer --port=8080 
+This exposes a pod created by deployment. The port is determined that that provided within the Dockerfile.
+You can see all the [different types available here](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
+
+To see created services:  
+kubectl get services                              
+NAME            TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kub-first-app   LoadBalancer   ############   <pending>     8080:32626/TCP   8s
+kubernetes      ClusterIP      #########      <none>        443/TCP          2d22h
+
+Usually see two services. 
+kubernetes - default that is created
+kub-first-app - the one we created. For minikube always says in pendings. 
+
+minikube will give us access to the service to a specific port so we can reach the VM locally. 
+  minikube service kub-first-app
+
+## additional notes on kubectl 
 
 You can remove an object by providing: kubectl delete (type of object used) (name provided within the create command.)
 If you can't remember the name you used, run the kubectl get (type of object) and you should see the name in the first column. 
+
+Deployments will be deleted on restart. 
