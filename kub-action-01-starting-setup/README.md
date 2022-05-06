@@ -120,10 +120,20 @@ kubernetes      ClusterIP      #########      <none>        443/TCP          2d2
 
 Usually see two services. 
 kubernetes - default that is created
-kub-first-app - the one we created. For minikube always says in pendings. 
+kub-first-app - the one we created. For minikube always says in pending.
+
+
 
 minikube will give us access to the service to a specific port so we can reach the VM locally. 
   minikube service kub-first-app
+
+Doesn't need if we running off a cloud provider. 
+
+# Scaling 
+You can have more than one pod up of the same image, you can do this by using
+kubectl scale deployment/first-app --replicas=3 
+
+replicas means the number of pods or containers will be running at a time. 
 
 ## additional notes on kubectl 
 
@@ -131,3 +141,5 @@ You can remove an object by providing: kubectl delete (type of object used) (nam
 If you can't remember the name you used, run the kubectl get (type of object) and you should see the name in the first column. 
 
 Deployments will be deleted on restart. 
+
+You acn get additional information about the pod by starting minikube dashboard and under deployments and events, you can see the restart and created content. 
