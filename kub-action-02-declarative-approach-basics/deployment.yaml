@@ -22,7 +22,7 @@ spec:
     spec: # spec for each of the pods being created - config
       containers: # can have more than one container. 
         - name: second-node # this is a list, so - is required to indicate which is part of the list on containers 
-          image: listentoripley/kub-first-app:2 # just a new line and directly related to name, so does not need a -  
+          image: listentoripley/kube-first-app # just a new line and directly related to name, so does not need a -  
         # must be a registered image. 
         # template what this looks like. 
         # - name: ...

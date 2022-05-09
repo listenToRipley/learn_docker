@@ -36,7 +36,7 @@ spec:
     spec: 
       containers:
         - name: second-node
-          image: academind/kub-first-app:2
+          image: listentoripley/kube-first-app
         # - name: ...
         #   image: ...
 
