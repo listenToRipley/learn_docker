@@ -1,5 +1,7 @@
 apiVersion: apps/v1
+## apiVersion is required. 
 kind: Deployment
+## must tell the kind so the kubernetes know what we want to create 
 metadata:
   name: second-app-deployment
 spec:
@@ -8,14 +10,16 @@ spec:
     matchLabels:
       app: second-app
       tier: backend
-  template:
-    metadata: 
+  template: # the pod 
+    metadata: # has it's own metadata since it is a child of this deployment. 
       labels:
-        app: second-app
-        tier: backend
-    spec: 
-      containers:
-        - name: second-node
-          image: academind/kub-first-app:2
+        app: second-app # pod information 
+        tier: backend 
+    spec: # spec for each of the pods being created - config
+      containers: # can have more than one container. 
+        - name: second-node # this is a list, so - is required to indicate which is part of the list on containers 
+          image: listentoripley/kub-first-app:2 # just a new line and directly related to name, so does not need a -  
+        
+        # template what this looks like. 
         # - name: ...
         #   image: ...
