@@ -22,7 +22,9 @@ How to run
 
 kubectl apply -f=deployment.yaml 
 
-Kind - Services 
+ If you make updates, then you can run this same apply command again after the changes are made to the saved yaml doc. 
+
+Kind - Servic es 
 The service exposes clusters and pods to the outside world. So the service object should provide this function.
 
 To get it running you use the same kubectl apply -f service.yaml 
@@ -30,6 +32,12 @@ To get it running you use the same kubectl apply -f service.yaml
 See it with kubectl get services 
 
 To get the port exposed, run minikube service name-of-service 
+
+Deleting
+You can delete an item by using the yaml file name. 
+kubectl delete -f=deployment.yaml 
+
+This will delete the resources created by this file, not the file itself. 
 
 
 Additions resources 
