@@ -142,4 +142,4 @@ If you can't remember the name you used, run the kubectl get (type of object) an
 
 Deployments will be deleted on restart. 
 
-You acn get additional information about the pod by starting minikube dashboard and under deployments and events, you can see the restart and created content. 
+You can get additional information about the pod by starting minikube dashboard and under deployments and events, you can see the restart and created content. 
