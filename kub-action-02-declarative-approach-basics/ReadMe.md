@@ -1,5 +1,7 @@
 ## about declarative process 
 
+REMEMBER THAT MINIKUBE SHOULD BE STARTED BEFORE YOU START THESE PROCESSES 
+
 apiVersion
 To know which apiVersion to use, [see the deployment example](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 This will be the latest version, so features may change over time. 
@@ -39,6 +41,9 @@ kubectl delete -f=deployment.yaml
 
 This will delete the resources created by this file, not the file itself. 
 
+Can add more than one by includes , between after -f or have multiple -f 
+
+You can use imperative delete if you wanted. 
 
 Additions resources 
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/ 
