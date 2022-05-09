@@ -17,6 +17,14 @@ How the deployment should be configured.
 replicas = how many pods to start with. It will default to 1.  Can be site to zero
 template = define the pod that will be created. 
 
+How to run
+-f= either the name of doc or path with filename 
+
+kubectl apply -f=deployment.yaml 
+
+Kind - Services 
+The service exposes clusters and pods to the outside world. So the service object should provide this function. 
+
 
 Additions resources 
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/ 

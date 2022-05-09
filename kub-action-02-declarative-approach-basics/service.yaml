@@ -4,12 +4,19 @@ metadata:
   name: backend
 spec:
   selector: 
+  # would only be able to provide label here. 
     app: second-app
+
+  # provide information that would be in expose in the imperative approach 
   ports:
-    - protocol: 'TCP'
-      port: 80
-      targetPort: 8080
+  # this is also a list
+    - protocol: 'TCP' # this is the default 
+      port: 80 # exposed 
+      targetPort: 8080 # external port beign used. 
+
+  # examples of second
     # - protocol: 'TCP'
     #   port: 443
     #   targetPort: 443
-  type: LoadBalancer
+  # yes type should be on the same value. The default is the ClusterIP. the NodePort would be there internal between items within a group  
+  type: LoadBalancer # an address that would be exposes the pods. This incoming gets distributed. 

@@ -6,10 +6,14 @@ metadata:
   name: second-app-deployment
 spec:
   replicas: 1
-  selector:
+  selector: 
+  # knows which pods should be controlled by this deployment. 
     matchLabels:
+    # pod labels we want to use on the deployment 
+    # should have matching labels within these given objects. 
       app: second-app
       tier: backend
+      # these are key value pairs.
   template: # the pod 
     metadata: # has it's own metadata since it is a child of this deployment. 
       labels:
@@ -19,7 +23,7 @@ spec:
       containers: # can have more than one container. 
         - name: second-node # this is a list, so - is required to indicate which is part of the list on containers 
           image: listentoripley/kub-first-app:2 # just a new line and directly related to name, so does not need a -  
-        
+        # must be a registered image. 
         # template what this looks like. 
         # - name: ...
         #   image: ...
