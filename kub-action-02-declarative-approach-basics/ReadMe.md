@@ -23,7 +23,13 @@ How to run
 kubectl apply -f=deployment.yaml 
 
 Kind - Services 
-The service exposes clusters and pods to the outside world. So the service object should provide this function. 
+The service exposes clusters and pods to the outside world. So the service object should provide this function.
+
+To get it running you use the same kubectl apply -f service.yaml 
+
+See it with kubectl get services 
+
+To get the port exposed, run minikube service name-of-service 
 
 
 Additions resources 
