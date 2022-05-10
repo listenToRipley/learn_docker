@@ -51,6 +51,9 @@ kubectl delete deployments,services -l group=example
 you have to let the system know which services you want to remove between the delete and -l 
 
 
+ImagePullPolicy
+It will not pull unless we specific the policy but only keep the version used when first started. Can make a rolling update, or preserve the document. 
+
 Additions resources 
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/ 
 
