@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: story-deployment 
+spec: 
+  #specifications - configurations 
+  replicas: 1
+  selectors: 
+    matchLabels:
+      app: story # the pod name - not the metadata labell 
+  metadata: 
+    labels: 
+      app: story # doesn't have to match name provided in containers 
+  template: # for the pod that will be created
+    spec: 
+      containers: 
+        - name: story
+        image: listentoripley/kub-data-demo # name of the image from dockerhub repo 
