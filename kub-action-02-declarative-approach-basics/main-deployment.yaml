@@ -25,9 +25,14 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      app: second-app
-      tier: backend
+    # matchLabels:
+    #   app: second-app
+    #   tier: backend
+    matchExpressions: 
+      # more configuration options like matchLabels, but stronger. 
+      # list of expresses that it matches again 
+      - {key: app, operators: In, values: [second-app, first-app]} # still matching on labels
+      # more details on these and operators can be found here: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#objectmeta-v1-meta  
   template:
     metadata: 
       labels:
