@@ -4,6 +4,8 @@ kind: Deployment
 ## must tell the kind so the kubernetes know what we want to create 
 metadata:
   name: second-app-deployment
+  labels: 
+    group: example 
 spec:
   replicas: 1
   selector: 

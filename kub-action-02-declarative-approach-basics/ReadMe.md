@@ -45,6 +45,12 @@ Can add more than one by includes , between after -f or have multiple -f
 
 You can use imperative delete if you wanted. 
 
+You can also delete by labels. Ths labels should be added in the metadata with groups. 
+kubectl delete deployments,services -l group=example 
+
+you have to let the system know which services you want to remove between the delete and -l 
+
+
 Additions resources 
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/ 
 
