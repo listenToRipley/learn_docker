@@ -25,6 +25,7 @@ spec:
       containers: # can have more than one container. 
         - name: second-node # this is a list, so - is required to indicate which is part of the list on containers 
           image: listentoripley/kube-first-app # just a new line and directly related to name, so does not need a -  
+          imagePullPolicy: Always # knows to pull the latest always. 
           livenessProbe: # how they should work once they are up in running 
             httpGet:
               path: /
